@@ -7,7 +7,6 @@ CORE_OS = " \
   u-boot-opi \
   openssh openssh-keygen \
   kernel-modules \
-  xradio \
 "
 
 EXTRA_TOOLS_INSTALL = " \

@@ -16,6 +16,7 @@ EXTRA_TOOLS_INSTALL = " \
 IMAGE_INSTALL += " \
   ${CORE_OS} \
   ${EXTRA_TOOLS_INSTALL} \
+  linux-firmware-ath9k \
 "
 
 IMAGE_FEATURES += "package-management"

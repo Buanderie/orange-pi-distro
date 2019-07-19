@@ -22,9 +22,9 @@ file://Licenses/x11.txt;md5=b46f176c847b8742db02126fb8af92e2 \
 SRC_URI = " \
   git://git.denx.de/u-boot.git;branch=master \
   file://boot.cmd \
-  file://Add_Spi_Nor_Flash_Boot_Support.patch \
   file://Increase_Kernel_Image_Max_Size.patch \
   file://0001-sunxi-h3-Fix-PLL1-setup-to-never-use-dividers.patch \
+  file://orangepi_zero_defconfig_patched \
 "
 
 SRCREV = "0157013f4a4945bbdb70bb4d98d680e0845fd784"
@@ -37,6 +37,10 @@ SPL_BINARY="u-boot-sunxi-with-spl.bin"
 
 UBOOT_ENV_SUFFIX = "scr"
 UBOOT_ENV = "boot"
+
+do_configure_prepend() {
+    cat ${WORKDIR}/orangepi_zero_defconfig_patched > ${WORKDIR}/git/configs/orangepi_zero_defconfig
+}
 
 do_compile_append() {
     ${B}/tools/mkimage -C none -A arm -T script -d ${WORKDIR}/boot.cmd ${WORKDIR}/${UBOOT_ENV_BINARY}

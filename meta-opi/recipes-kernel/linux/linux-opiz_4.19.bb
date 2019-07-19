@@ -12,5 +12,12 @@ SRC_URI = " \
   git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git;protocol=git;branch=master \
   file://defconfig \
   file://0001-Enable_Spi_Nor_Flash.patch \
-  file://0002-Add_WiFi_To_Dts.patch \
 "
+
+do_configure_append() {
+
+  # Okay, add ath9k (unpatched for now)
+  kernel_conf_variable ATH9K m
+  kernel_conf_variable ATH9K_HTC m
+
+}

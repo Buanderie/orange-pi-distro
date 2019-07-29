@@ -17,6 +17,15 @@ IMAGE_INSTALL += " \
   ${CORE_OS} \
   ${EXTRA_TOOLS_INSTALL} \
   linux-firmware-ath9k \
+  libuv \
+  libpcap \
+  libpcap-dev \
+  libnl \
+  libnl-dev \
+  wireless-tools \
+  libiw \
+  libiw-dev \
+  dlib \
 "
 
 IMAGE_FEATURES += "package-management"

@@ -20,11 +20,13 @@ SRC_URI = " \
   file://ath_patched/ath9k/mac.c \
   file://ath_patched/ath9k/mac.h \
   file://ath_patched/regd.c \
+  file://mac80211_patched.h \
+  file://tx_patched.c \
 "
 
 do_configure_prepend() {
-    # cat ${WORKDIR}/ath_patched/ath9k/common-init.c > ${WORKDIR}/git/drivers/net/wireless/ath/ath9k/configs/gw_ventana.h
-    # cat ${WORKDIR}/ath_patched/ath9k/hw.h > ${WORKDIR}/git/drivers/net/wireless/ath/ath9k/hw.h
+    cp ${WORKDIR}/mac80211_patched.h ${WORKDIR}/git/include/net/mac80211.h
+    cp ${WORKDIR}/tx_patched.c ${WORKDIR}/git/net/mac80211/tx.c
     cp -R ${WORKDIR}/ath_patched/* ${WORKDIR}/git/drivers/net/wireless/ath/
 }
 
